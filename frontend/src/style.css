@@ -1,0 +1,140 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color: #213547;
+  background-color: transparent;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Enlaces */
+a {
+  font-weight: 500;
+  color: #457b9d;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #1d3557;
+}
+
+/* 🐾 Fondo general con huellitas */
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+
+  background-image: url('./assets/backgrounds/paw-pattern.png');
+  background-repeat: repeat;
+  background-size: 200px;
+  background-attachment: fixed;
+  background-color: #f5f2ec;
+}
+
+/* Títulos */
+h1,
+h2,
+h3 {
+  color: #1d3557;
+}
+
+/* Botones */
+button {
+  border-radius: 999px;
+  border: none;
+  padding: 0.6em 1.6em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #ff9f43;
+  color: white;
+  cursor: pointer;
+  transition: 0.25s;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+}
+button:hover {
+  background-color: #e67e22;
+}
+
+/* Contenedor principal */
+#app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+
+  background-color: rgba(255, 255, 255, 0.75);
+  border-radius: 24px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.10);
+}
+
+/* Header y menú */
+header,
+nav {
+  background-color: rgba(255, 255, 255, 0.85);
+  padding: 10px 20px;
+  border-radius: 18px;
+  margin-bottom: 18px;
+}
+
+/* Tarjetas */
+.product-card {
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  text-align: left;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background-color: #ffffff;
+}
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.description {
+  font-size: 14px;
+  margin: 8px 0 5px;
+  color: #555;
+}
+
+.price {
+  font-size: 18px;
+  color: #457b9d;
+  margin-bottom: 10px;
+}
+
+/* Botón tipo pastilla */
+.btn {
+  display: inline-block;
+  padding: 8px 14px;
+  background: #ff9f43;
+  color: white;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: 0.2s;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+}
+.btn:hover {
+  background: #e67e22;
+}
+
+/* Carrito */
+.cart-summary {
+  background: #e8f5e9;
+  padding: 20px;
+  border-radius: 18px;
+  margin-top: 25px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+/* No modo oscuro automático */
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: transparent;
+  }
+}

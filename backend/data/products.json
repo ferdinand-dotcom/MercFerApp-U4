@@ -1,0 +1,83 @@
+[
+  {
+    "id": 1,
+    "name": "Pro Can  Perro Adulto raza pequeña 15 kg",
+    "description": "Alimento completo para perros adultos.",
+    "price": 39.90,
+    "imageUrl": "https://d2o812a6k13pkp.cloudfront.net/Productos/40353340_0120220914161542.jpg",
+    "categoryId": 1,
+    "stock": 25
+  },
+  {
+    "id": 2,
+    "name": "Pro Can Cahorro raza mediana y grande 30 kg",
+    "description": "Fórmula especial para cachorros de razas medianas y grandes ",
+    "price": 58.50,
+    "imageUrl": "https://tse4.mm.bing.net/th/id/OIP.18S7AXCMxDF_e6gnH9DttgHaHa?rs=1&pid=ImgDetMain&o=7&rm=3",
+    "categoryId": 1,
+    "stock": 30
+  },
+  {
+    "id": 3,
+    "name": "Nutra Pro, Croquetas Gato Esterilizado 2 kg",
+    "description": "Alimento balanceado para gatos esterilizados, ayuda a controlar el peso y cuida el tracto urinario.",
+    "price": 32.75,
+    "imageUrl": "https://tse2.mm.bing.net/th/id/OIP.o36Au7j7R0Cacb5mEliqnAHaHa?rs=1&pid=ImgDetMain&o=7&rm=3",
+    "categoryId": 1,
+    "stock": 18
+  },
+  {
+    "id": 4,
+    "name": "Shampoo Esfiel Antipulgas 200 ml",
+    "description": "Shampoo suave con acción antipulgas y garrapatas, aroma fresco, apto para perros y gatos.",
+    "price": 4.75,
+    "imageUrl": "https://www.supermercadosantamaria.com/documents/10180/10504/30417_M.jpg",
+    "categoryId": 2,
+    "stock": 40
+  },
+  {
+    "id": 5,
+    "name": "Jabón Medicado Cariñoso para Piel Sensible",
+    "description": "Jabón dermatológico para mascotas con piel sensible, ayuda a calmar irritaciones y picazón.",
+    "price": 3.50,
+    "imageUrl": "https://tse1.mm.bing.net/th/id/OIP.qi9nQcwbQWW_Pg5Ug7D1lwHaKg?rs=1&pid=ImgDetMain&o=7&rm=3",
+    "categoryId": 2,
+    "stock": 35
+  },
+  {
+    "id": 6,
+    "name": "Collar Antipulgas Dominal  Mediano Bayer",
+    "description": "Collar de nylon resistente , ideal para perros medianos. Ajustable y cómodo.",
+    "price": 7.90,
+    "imageUrl": "https://th.bing.com/th/id/R.ee35fda7c61de90f74bc04a07f6ca4b5?rik=UQxwepM3KZQXUA&pid=ImgRaw&r=0",
+    "categoryId": 3,
+    "stock": 28
+  },
+  {
+    "id": 7,
+    "name": "Juguete Pelota Mordedora",
+    "description": "Pelota de goma resistente para cuidar la dentadura y reducir el estrés por mordida.",
+    "price": 4.25,
+    "imageUrl": "https://tse4.mm.bing.net/th/id/OIP.QeSPkMbOzv-GXUACChzxNgHaHa?rs=1&pid=ImgDetMain&o=7&rm=3",
+    "categoryId": 3,
+    "stock": 40
+  },
+  {
+    "id": 8,
+    "name": "Artrin Vitaminas Complejas para Perro",
+    "description": "Suplemento vitamínico para perros en crecimiento, adultos mayores o convalecientes.",
+    "price": 21.00,
+    "imageUrl": "https://d2r9epyceweg5n.cloudfront.net/stores/001/349/468/products/1623008-11-b1bac30da0fff540fd16007153021287-1024-1024.jpg",
+    "categoryId": 4,
+    "stock": 18
+  },
+  {
+    "id": 9,
+    "name": "Desparasitante Aprax Interno 20 kg",
+    "description": "Tabletas desparasitantes para perros de hasta 20 kg, amplio espectro contra parásitos internos.",
+    "price": 2.80,
+    "imageUrl": "https://richmondvet.com.ar/wp-content/uploads/2019/03/Render-Aprax-RG-4-Comp-600x420.jpg",
+    "categoryId": 4,
+    "stock": 22
+  }
+]
