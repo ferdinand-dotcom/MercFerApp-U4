@@ -9,7 +9,7 @@ dist/
 coverage/
 .vite/
 
-# Env files
+# Env files (NO SE DEBEN SUBIR)
 .env
 .env.local
 .env.development.local
