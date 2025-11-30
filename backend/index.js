@@ -1,12 +1,17 @@
+// backend/index.js
 const express = require('express');
 const cors = require('cors');
 const fs = require('fs');
 const path = require('path');
+require('dotenv').config(); // lee .env
+require('./db'); // SOLO conecta a MongoDB y muestra el mensaje de conexión
 
 const app = express();
-const PORT = 3001;
 
-// Rutas a los archivos de datos
+// Si no hay PORT en .env usa 3001 por defecto
+const PORT = process.env.PORT || 3001;
+
+// Rutas a los archivos de datos (se siguen usando como “mini BD”)
 const productsPath = path.join(__dirname, 'data', 'products.json');
 const categoriesPath = path.join(__dirname, 'data', 'categories.json');
 
@@ -23,6 +28,11 @@ function writeJson(filePath, data) {
 // Middlewares
 app.use(cors());
 app.use(express.json());
+
+// --------- ENDPOINT DE SALUD ---------
+app.get('/health', (req, res) => {
+  res.json({ status: 'ok', time: new Date().toISOString() });
+});
 
 // ---------------- CATEGORIES ----------------
 
