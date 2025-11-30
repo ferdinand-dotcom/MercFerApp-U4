@@ -2,67 +2,59 @@
 import { ref } from 'vue'
 import { useApi } from './useApi'
 
-export function useProducts() {
-  const {
-    data: productsData,
-    loading,
-    error,
-    get,
-    post,
-    put,
-    del
-  } = useApi()
+// OJO: useApi ya tiene por defecto 'http://localhost:3001/api'
+const apiProducts = useApi()      // para productos
+const apiCategories = useApi()    // otra instancia para categorías
 
-  const {
-    data: categoriesData,
-    loading: loadingCategories,
-    error: errorCategories,
-    get: getCategoriesApi
-  } = useApi()
+const products = ref([])          // lista de productos
+const categories = ref([])        // lista de categorías
 
-  const products = ref([])
-  const categories = ref([])
+const loading = ref(false)
+const error = ref(null)
 
-  const loadProducts = async () => {
-    const result = await get('/api/products')
-    if (result) products.value = result
+const loadingCategories = ref(false)
+const errorCategories = ref(null)
+
+async function loadProducts () {
+  loading.value = true
+  error.value = null
+  try {
+    // como la base ya trae /api, aquí solo ponemos /products
+    await apiProducts.request('/products')
+    const data = apiProducts.data.value
+    products.value = Array.isArray(data) ? data : []
+  } catch (err) {
+    console.error('Error cargando productos:', err)
+    error.value = err
+  } finally {
+    loading.value = false
   }
+}
 
-  const loadCategories = async () => {
-    const result = await getCategoriesApi('/api/categories')
-    if (result) categories.value = result
+async function loadCategories () {
+  loadingCategories.value = true
+  errorCategories.value = null
+  try {
+    await apiCategories.request('/categories')
+    const data = apiCategories.data.value
+    categories.value = Array.isArray(data) ? data : []
+  } catch (err) {
+    console.error('Error cargando categorías:', err)
+    errorCategories.value = err
+  } finally {
+    loadingCategories.value = false
   }
+}
 
-  const getProductById = async (id) => {
-    return await get(`/api/products/${id}`)
-  }
-
-  const createProduct = async (product) => {
-    return await post('/api/products', product)
-  }
-
-  const updateProduct = async (id, product) => {
-    return await put(`/api/products/${id}`, product)
-  }
-
-  const deleteProduct = async (id) => {
-    return await del(`/api/products/${id}`)
-  }
-
+export function useProducts () {
   return {
-    // estados
     products,
     categories,
     loading,
     error,
     loadingCategories,
     errorCategories,
-    // acciones
     loadProducts,
-    loadCategories,
-    getProductById,
-    createProduct,
-    updateProduct,
-    deleteProduct
+    loadCategories
   }
 }

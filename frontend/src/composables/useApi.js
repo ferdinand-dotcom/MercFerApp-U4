@@ -1,7 +1,9 @@
 // frontend/src/composables/useApi.js
 import { ref, onBeforeUnmount } from 'vue'
 
-export function useApi(baseUrl = 'http://localhost:3001') {
+const DEFAULT_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001/api'
+
+export function useApi(baseUrl = DEFAULT_BASE_URL) {
   const data = ref(null)
   const loading = ref(false)
   const error = ref(null)
@@ -12,7 +14,6 @@ export function useApi(baseUrl = 'http://localhost:3001') {
     error.value = null
     data.value = null
 
-    // cancelar petición anterior si existe
     if (controller) controller.abort()
     controller = new AbortController()
     options.signal = controller.signal
@@ -29,43 +30,27 @@ export function useApi(baseUrl = 'http://localhost:3001') {
       })
 
       if (!response.ok) {
-        const bodyText = await response.text().catch(() => '')
-        throw new Error(`Error ${response.status}: ${bodyText || response.statusText}`)
+        const errorData = await response.json().catch(() => ({}))
+        throw new Error(errorData.message || `Error HTTP ${response.status}`)
       }
 
-      const json = await response.json()
-      data.value = json
-      return json
+      data.value = await response.json()
     } catch (err) {
-      if (err.name === 'AbortError') {
-        // petición cancelada, no marcamos error
-        return
-      }
-
-      // reintento simple UNA vez
-      if (retry) {
-        return request(endpoint, options, { retry: false })
-      }
-
-      error.value = err
-      throw err
+      console.error('Error en request:', err)
+      error.value = err.message || 'Error en la solicitud'
     } finally {
       loading.value = false
     }
   }
 
-  const get = (endpoint) => request(endpoint)
-  const post = (endpoint, body) =>
-    request(endpoint, { method: 'POST', body: JSON.stringify(body) })
-  const put = (endpoint, body) =>
-    request(endpoint, { method: 'PUT', body: JSON.stringify(body) })
-  const del = (endpoint) => request(endpoint, { method: 'DELETE' })
-
-  const cancel = () => {
+  onBeforeUnmount(() => {
     if (controller) controller.abort()
+  })
+
+  return {
+    data,
+    loading,
+    error,
+    request
   }
-
-  onBeforeUnmount(cancel)
-
-  return { data, loading, error, get, post, put, del, cancel }
 }

@@ -26,6 +26,7 @@
       </button>
     </div>
 
+    <!-- estados -->
     <div v-if="loading || loadingCategories" class="status">
       Cargando productos...
     </div>
@@ -77,10 +78,13 @@ const {
 const { addToCart } = useCart()
 
 const filteredProducts = computed(() => {
+  // 👉 si products.value aún no está listo, usamos []
+  const list = Array.isArray(products.value) ? products.value : []
+
   const term = search.value.toLowerCase().trim()
   const cat = selectedCategory.value
 
-  return products.value.filter((p) => {
+  return list.filter((p) => {
     const matchesSearch =
       !term ||
       p.name.toLowerCase().includes(term) ||

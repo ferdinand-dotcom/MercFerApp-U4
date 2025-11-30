@@ -9,13 +9,12 @@ dist/
 coverage/
 .vite/
 
-# Env files (NO SE DEBEN SUBIR)
+# Env files 
 .env
 .env.local
 .env.development.local
 .env.production.local
 .env.test.local
-
 backend/.env
 frontend/.env
 
@@ -25,3 +24,4 @@ frontend/.env
 # Sistema
 .DS_Store
 Thumbs.db
+
