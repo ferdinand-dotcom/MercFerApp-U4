@@ -1,7 +1,8 @@
 // frontend/src/composables/useApi.js
 import { ref, onBeforeUnmount } from 'vue'
 
-const DEFAULT_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001/api'
+const DEFAULT_BASE_URL = import.meta.env.VITE_API_URL || 'https://mercferapp-u4-production.up.railway.app/api'
+
 
 export function useApi(baseUrl = DEFAULT_BASE_URL) {
   const data = ref(null)
