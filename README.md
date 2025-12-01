@@ -1,86 +1,54 @@
-# 🐾 Fermaskot
+# Fermaskot – Tienda de Mascotas (Unidad 4)
 
-Aplicación web tipo **SPA** desarrollada con **Vue 3** y una **API en Node.js/Express** para la gestión de productos de mascotas.  
-Permite listar productos, filtrarlos por categoría, buscar por nombre o descripción y añadirlos a un carrito de compras.
-
-> Proyecto académico para la materia de Programación / Aplicaciones Web.
-
-## ✨ Características principales
-
-- Listado de productos con:
-  - Imagen
-  - Nombre
-  - Descripción
-  - Precio
-  - Categoría
-- **Búsqueda en tiempo real** por nombre o descripción.
-- **Filtro por categorías** (todas, alimentos, accesorios, etc.).
-- **Carrito de compras**:
-  - Añadir productos
-  - Visualizar los items añadidos
-  - Ver totales
-- Diseño responsive básico con:
-  - Tarjetas modernas para los productos
-  - Fondo decorativo con patrón de huellitas 🐾
-  - Botones estilizados
-- Arquitectura separada en:
-  - `backend/` → API de productos
-  - `frontend/` → SPA con Vue 3 + Vite
+Aplicación web para la gestión y visualización de productos para mascotas.  
+El proyecto está dividido en **backend (API)** y **frontend (SPA con Vue)**, ambos desplegados en la nube.
 
 ---
 
-## 🧩 Tecnologías utilizadas
+## 🧑‍💻 Datos del proyecto
 
-### Frontend
-
-- [Vue 3](https://vuejs.org/) (Composition API)
-- [Vite](https://vitejs.dev/)
-- HTML5 + CSS3
-- JavaScript (ES6+)
-
-### Backend
-
-- [Node.js](https://nodejs.org/)
-- [Express](https://expressjs.com/)
-- Manejo de datos en formato **JSON**
-
-### Herramientas de desarrollo
-
-- Git & GitHub
-- Visual Studio Code
-- npm (Node Package Manager)
+- **Alumno:** Coque Taipe Nelson Fernando
+- **Materia:** Aplicaciones Web
+- **Universidad:** Universidad Politécnica Salesiana
+- **Unidad:** U4 – Consumo de APIs y despliegue en la nube
 
 ---
 
-## 🗂 Estructura del proyecto
+## 🌐 Enlaces de despliegue
 
-```bash
-Fermaskot/
-├── backend/              # API en Node/Express
-│   ├── data/             # JSON con productos y categorías
-│   ├── routes/           # Rutas de la API
-│   ├── controllers/      # Controladores (si aplica)
-│   ├── server.js         # Punto de entrada del backend
-│   └── package.json
-│
-├── frontend/             # Aplicación SPA con Vue 3
-│   ├── public/
-│   ├── src/
-│   │   ├── assets/
-│   │   │   └── backgrounds/
-│   │   │       └── paw-pattern.png   # Fondo de huellitas 🐾
-│   │   ├── components/   # Componentes reutilizables (ProductCard, etc.)
-│   │   ├── composables/  # useProducts, useCart, etc.
-│   │   ├── router/       # Vue Router (Home, About, Cart, NotFound)
-│   │   ├── views/        # Vistas principales
-│   │   ├── App.vue       # Layout principal
-│   │   └── main.js       # Entrada de la app
-│   └── package.json
-│
-├── .gitignore
-└── README.md             # Este archivo
+- **Frontend (Netlify):**  
+  `https://stately-torrone-b4e00b.netlify.app`
 
-🧪 Ejecución del proyecto
+- **Backend (Railway – API):**  
+  Base URL: `https://mercferapp-u4-production.up.railway.app/api`  
 
-git clone https://github.com/ferdinand-dotcom/Fermaskot.git
-cd Fermaskot
+  Endpoints principales:
+  - `/health` – Verifica que el backend esté funcionando.
+  - `/products` – Lista de productos.
+  - `/categories` – Lista de categorías.
+
+---
+
+## 🏗️ Arquitectura del proyecto
+
+- **Backend**
+  - Node.js + Express
+  - Controladores para productos y categorías
+  - Endpoint de health check
+  - Desplegado en **Railway**
+
+- **Frontend**
+  - Vue 3 + Vite
+  - Consumo de API mediante un composable `useApi.js`
+  - Filtros por nombre/descrición y categoría
+  - Carrito básico
+  - Desplegado en **Netlify**
+
+---
+
+## ⚙️ Variables de entorno
+
+### Frontend (`frontend/.env`)
+
+```env
+VITE_API_URL=https://mercferapp-u4-production.up.railway.app/api
